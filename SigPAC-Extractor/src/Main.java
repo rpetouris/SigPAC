@@ -5,7 +5,7 @@ public class Main {
     static Scanner inputScanner;
 
     public static void main(String[] args) {
-        System.out.println("SigPAC ToolKit by Rafael Petouris");
+        System.out.println("SigPAC ToolKit por Rafael Petouris");
         inputScanner = new Scanner(System.in);
 
         String option = "";
@@ -44,13 +44,13 @@ public class Main {
                         "Si ha tenido problemas, por favor contacte con r.petouris@gmail.com");
                 break;
             default:
-                System.out.println("El número introducido no es válido. Inténtelo de nuevo \n");
+                System.out.println("La opción introducida no es válida. Inténtelo de nuevo \n");
                 break;
         }
     }
 
     private static void pdfExtractor() {
-        System.out.println("SigPAC Extractor by Rafael Petouris");
+        System.out.println("SigPAC Extractor por Rafael Petouris");
 
         String fileName = fileNameInput();
         System.out.println(fileName);
