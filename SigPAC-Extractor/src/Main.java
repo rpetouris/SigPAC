@@ -43,6 +43,7 @@ public class Main {
                 break;
             case "2":
                 System.out.println("Ha elegido 'Comparar diferencias entre tablas'");
+                System.out.println("Esta opción no está aún desarrollada. Lamento las molestias.");
                 break;
             case "3":
                 System.out.println("Muchas gracias por usar este servicio.\n" +
@@ -62,14 +63,14 @@ public class Main {
         System.out.println("SigPAC Extractor por Rafael Petouris");
 
         String pdfFileName = fileNameInput();
-        System.out.println("Ha decidido abrir el archivo pdf " + pdfFileName);
+        System.out.println("Ha decidido abrir el archivo pdf \"" + pdfFileName +"\"");
 
         //Fill in extraction function
 
         System.out.println("Como quiere llamar esta tabla?:");
-        String txtFileName = inputScanner.nextLine();
+        String tableName = inputScanner.nextLine();
 
-        System.out.println("La tabla se ha guardado como " + txtFileName); //change to path
+        System.out.println("La tabla se ha guardado como \"" + tableName +"\""); //change to path after implementing
     }
 
 
