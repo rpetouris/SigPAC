@@ -50,7 +50,8 @@ public class Main {
                         "Si ha tenido problemas, por favor contacte con r.petouris@gmail.com");
                 break;
             default:
-                System.out.println("La opción introducida no es válida. Inténtelo de nuevo \n");
+                System.out.println("La opción introducida no es válida. Introduzca un número del 1 al 3. \n" +
+                        "Inténtelo de nuevo \n");
                 break;
         }
     }
