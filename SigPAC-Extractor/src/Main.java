@@ -68,7 +68,7 @@ public class Main {
 
         //Fill in extraction function
 
-        System.out.println("Como quiere llamar esta tabla?:");
+        System.out.println("¿Cómo quiere llamar a esta tabla?");
         String tableName = inputScanner.nextLine();
 
         System.out.println("La tabla se ha guardado como \"" + tableName +"\""); //change to path after implementing
