@@ -1,10 +1,9 @@
 import java.util.Scanner;
-import java.io.File;
-import java.io.IOException;
 
 
 public class Main {
     static Scanner inputScanner;
+
     public static void main(String[] args) {
         System.out.println("SigPAC ToolKit by Rafael Petouris");
         inputScanner = new Scanner(System.in);
