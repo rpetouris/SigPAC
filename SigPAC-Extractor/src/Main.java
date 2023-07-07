@@ -14,8 +14,8 @@ public class Main {
             System.out.println(
                     "-------------------------------- \n" +
                             "Por favor, indique el número de la opción a realizar: \n" +
-                            "1 - Escanear pdf a fichero \n" +
-                            "2 - Comparar diferencias entre ficheros \n" +
+                            "1 - Escanear pdf a tabla \n" +
+                            "2 - Comparar diferencias entre tablas \n" +
                             "3 - Cerrar aplicación \n" +
                             "-------------------------------- "
             );
@@ -30,14 +30,19 @@ public class Main {
 
     }
 
+    /**
+     * Switch case for selection of tools to use.
+     *
+     * @param option the option selected.
+     */
     private static void optionSwitchCase(String option) {
         switch (option) {
             case "1":
-                System.out.println("Ha elegido 'Escanear pdf a fichero:'");
+                System.out.println("Ha elegido 'Escanear pdf a tabla:'");
                 pdfExtractor();
                 break;
             case "2":
-                System.out.println("Ha elegido 'Comparar diferencias entre ficheros'");
+                System.out.println("Ha elegido 'Comparar diferencias entre tablas'");
                 break;
             case "3":
                 System.out.println("Muchas gracias por usar este servicio.\n" +
@@ -49,22 +54,33 @@ public class Main {
         }
     }
 
+    /**
+     * Method to extract the table contents of a pdf to a table format
+     */
+
     private static void pdfExtractor() {
         System.out.println("SigPAC Extractor por Rafael Petouris");
 
-        String fileName = fileNameInput();
-        System.out.println(fileName);
+        String pdfFileName = fileNameInput();
+        System.out.println("Ha decidido abrir el archivo pdf " + pdfFileName);
+
+        //Fill in extraction function
+
+        System.out.println("Como quiere llamar esta tabla?:");
+        String txtFileName = inputScanner.nextLine();
+
+        System.out.println("La tabla se ha guardado como " + txtFileName); //change to path
     }
 
 
     /**
-     * Method to scan fileName from user input;
+     * Method to scan fileName from user input.
      *
      * @return String fileName
      */
     private static String fileNameInput() {
 
-        System.out.print("Por favor, escriba el nombre del pdf a leer: \n");
+        System.out.println("Por favor, escriba el nombre del pdf a leer:");
         String fileName = inputScanner.nextLine();
 
         return fileName;
