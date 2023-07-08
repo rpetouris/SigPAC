@@ -1,12 +1,18 @@
+import Classes.Extractor;
+import Classes.Shared;
+
 import java.util.Scanner;
 
 
 public class Main {
     static Scanner inputScanner;
+    static Shared shared;
+    static Extractor extractor = new Extractor();
 
     public static void main(String[] args) {
         System.out.println("SigPAC ToolKit por Rafael Petouris");
         inputScanner = new Scanner(System.in);
+        shared = new Shared(inputScanner);
 
         String option = "";
 
@@ -39,7 +45,7 @@ public class Main {
         switch (option) {
             case "1":
                 System.out.println("Ha elegido 'Escanear pdf a tabla:'");
-                pdfExtractor();
+                extractor.pdfExtractor();
                 break;
             case "2":
                 System.out.println("Ha elegido 'Comparar diferencias entre tablas'");
@@ -54,37 +60,5 @@ public class Main {
                         "Inténtelo de nuevo \n");
                 break;
         }
-    }
-
-    /**
-     * Method to extract the table contents of a pdf to a table format
-     */
-
-    private static void pdfExtractor() {
-        System.out.println("SigPAC Extractor por Rafael Petouris");
-
-        String pdfFileName = fileNameInput();
-        System.out.println("Ha decidido abrir el archivo pdf \"" + pdfFileName +"\"");
-
-        //Fill in extraction function
-
-        System.out.println("¿Cómo quiere llamar a esta tabla?");
-        String tableName = inputScanner.nextLine();
-
-        System.out.println("La tabla se ha guardado como \"" + tableName +"\""); //change to path after implementing
-    }
-
-
-    /**
-     * Method to scan fileName from user input.
-     *
-     * @return String fileName
-     */
-    private static String fileNameInput() {
-
-        System.out.println("Por favor, escriba el nombre del pdf a leer:");
-        String fileName = inputScanner.nextLine();
-
-        return fileName;
     }
 }
