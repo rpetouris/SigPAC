@@ -45,32 +45,7 @@ public class Extractor extends Shared {
 
 
     }
-
-
-    private static String extract(String fileName) {
-        String text = "";
-
-        try {
-            File file = new File(fileName);
-            Scanner fileScanner = new Scanner(file);
-
-            while (fileScanner.hasNextLine()) {
-                text += fileScanner.nextLine() + "\n";
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        int indexBegin = text.indexOf("DATOS DE RECINTOS"); //beginning
-        int indexEnd = text.indexOf("DATOS DE LINEAS DE AYUDA / RECINTOS"); //end
-
-        System.out.println(indexBegin + " " + indexEnd);
-
-        String proper = text.substring(indexBegin,indexEnd);
-
-        return proper;
-    }
+    
 
     private static String readPDF(String fileName) {
 
