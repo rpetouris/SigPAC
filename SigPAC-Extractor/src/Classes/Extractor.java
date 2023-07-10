@@ -32,16 +32,18 @@ public class Extractor extends Shared {
         String pdfFileName = shared.fileNameInput();
         System.out.println("Ha decidido abrir el archivo pdf \"" + pdfFileName + "\"");
 
-        //Fill in extraction function
 
-        System.out.println("¿Cómo quiere llamar a esta tabla?");
-        String tableName = shared.getInputScanner().nextLine();
 
-        File file = new File("./Files/" + tableName + ".txt");
+        String s = readPDF(pdfFileName);
+        if (s != null) {
+            System.out.println("¿Cómo quiere llamar a esta tabla?");
+            String tableName = shared.getInputScanner().nextLine();
+            File file = new File("./Files/" + tableName + ".txt");
+            writeToFile(s, file);
+            System.out.println("La tabla se ha guardado como \"" + file.getAbsolutePath() + "\"");
+        }
 
-        writeToFile(readPDF(pdfFileName), file);
 
-        System.out.println("La tabla se ha guardado como \"" + tableName + "\""); //change to path after implementing
     }
 
 
@@ -60,7 +62,14 @@ public class Extractor extends Shared {
             e.printStackTrace();
         }
 
-        return text;
+        int indexBegin = text.indexOf("DATOS DE RECINTOS"); //beginning
+        int indexEnd = text.indexOf("DATOS DE LINEAS DE AYUDA / RECINTOS"); //end
+
+        System.out.println(indexBegin + " " + indexEnd);
+
+        String proper = text.substring(indexBegin,indexEnd);
+
+        return proper;
     }
 
     private static String readPDF(String fileName) {
@@ -86,19 +95,39 @@ public class Extractor extends Shared {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("No se ha encontrado el archivo.");
+            return null;
         }
 
-        return text;
+        int indexBegin = text.indexOf("DATOS DE LINEAS DE AYUDA / RECINTOS"); //beginning
+        int indexEnd = text.indexOf("Declaración Responsable(Agricultor Activo)"); //end
+
+        System.out.println(indexBegin + " " + indexEnd);
+
+        String proper = text.substring(indexBegin,indexEnd + 1);
+
+        //test
+        String[] recints = proper.split("\n");
+
+        String r = "";
+
+        for (String recint : recints) {
+            if (recint.matches("\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+,\\d+ \\w \\w+")){
+                r += recint + "\n";
+            }
+        }
+
+        return r;
     }
 
     private static void writeToFile(String text, File file) {
         try {
             FileWriter fileWriter = new FileWriter(file.getAbsolutePath());
             fileWriter.write(text);
+            fileWriter.close();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("There was an error creating the file.");
+            System.out.println("Ha habido un error al crear el archivo.");
         }
     }
 }
