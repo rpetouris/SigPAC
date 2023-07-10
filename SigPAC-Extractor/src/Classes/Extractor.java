@@ -45,7 +45,7 @@ public class Extractor extends Shared {
 
 
     }
-    
+
 
     private static String readPDF(String fileName) {
 
