@@ -1,8 +1,19 @@
 package Classes;
 
-public class Extractor {
+import java.util.Scanner;
+
+public class Extractor extends Shared {
 
     private static Shared shared;
+
+    /**
+     * Constructor for Extractor, inherits from Shared
+     *
+     * @param inputScanner scanner that detects user inputs
+     */
+    public Extractor(Scanner inputScanner) {
+        super(inputScanner);
+    }
 
     /**
      * Method to extract the table contents of a pdf to a table format
@@ -20,4 +31,6 @@ public class Extractor {
 
         System.out.println("La tabla se ha guardado como \"" + tableName + "\""); //change to path after implementing
     }
+
+
 }

@@ -6,6 +6,11 @@ public class Shared {
 
     private static Scanner inputScanner;
 
+    /**
+     * Constructor for Shared, contains shared features between Extractor and Difference classes
+     *
+     * @param inputScanner scanner that detects user inputs
+     */
     public Shared(Scanner inputScanner) {
         this.inputScanner = inputScanner;
     }
