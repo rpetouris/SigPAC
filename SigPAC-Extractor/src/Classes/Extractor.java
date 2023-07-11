@@ -79,6 +79,11 @@ public class Extractor extends Shared {
         return textParser(text);
     }
 
+    /**
+     * Method that parses through the text and outputs only the necessary information
+     * @param text to retrieve information
+     * @return ordered text of plots of land
+     */
     private static String textParser(String text) {
         int indexBegin = text.indexOf("DATOS DE LINEAS DE AYUDA / RECINTOS"); //beginning
         int indexEnd = text.indexOf("Declaración Responsable(Agricultor Activo)"); //end
@@ -87,20 +92,26 @@ public class Extractor extends Shared {
 
         String proper = text.substring(indexBegin, indexEnd + 1);
 
-        //test
-        String[] recints = proper.split("\n");
+        String[] plots = proper.split("\n");
 
-        String r = "";
+        String table = "";
 
-        for (String recint : recints) {
-            if (recint.matches("\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+,\\d+ \\w \\w+")) {
-                r += recint + "\n";
+        for (String p : plots) {
+            if (p.matches("\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+,\\d+ \\w \\w+")) {
+                table += p + "\n";
             }
         }
 
-        return r;
+        return table;
     }
 
+    /**
+     * Method that writes the table to a txt file with the name introduced.
+     * If a file with the given name already exists, it is replaced.
+     * @param text table to be inserted in the txt
+     * @param file name of the file to add in the information
+     * @throws Exception if there is an error to create the file
+     */
     private static void writeToFile(String text, File file) {
         try {
             FileWriter fileWriter = new FileWriter(file.getAbsolutePath());
