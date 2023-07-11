@@ -24,7 +24,7 @@ public class Shared {
      *
      * @return String fileName
      */
-    static String fileNameInput() {
+    public static String fileNameInput() {
 
         System.out.println("Por favor, escriba el nombre del pdf a leer:");
         String fileName = inputScanner.nextLine();

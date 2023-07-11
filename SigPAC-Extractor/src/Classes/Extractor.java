@@ -12,8 +12,6 @@ import java.util.Scanner;
 
 public class Extractor extends Shared {
 
-    private static Shared shared;
-
     /**
      * Constructor for Extractor, inherits from Shared
      *
@@ -26,16 +24,16 @@ public class Extractor extends Shared {
     /**
      * Method to extract the table contents of a pdf to a table format
      */
-    public static void pdfExtractor() {
+    public void pdfExtractor() {
         System.out.println("SigPAC Extractor por Rafael Petouris");
 
-        String pdfFileName = shared.fileNameInput();
+        String pdfFileName = super.fileNameInput();
         System.out.println("Ha decidido abrir el archivo pdf \"" + pdfFileName + "\"");
 
         String s = readPDF(pdfFileName);
         if (s != null) {
             System.out.println("¿Cómo quiere llamar a esta tabla?");
-            String tableName = shared.getInputScanner().nextLine();
+            String tableName = super.getInputScanner().nextLine();
             File file = new File("./Files/" + tableName + ".txt");
             writeToFile(s, file);
             System.out.println("La tabla se ha guardado como \"" + file.getAbsolutePath() + "\"");
@@ -50,7 +48,7 @@ public class Extractor extends Shared {
      * @return String with text within file
      * @throws IOException if file not found
      */
-    private static String readPDF(String fileName) {
+    public static String readPDF(String fileName) {
 
         String text = "";
 
@@ -69,7 +67,7 @@ public class Extractor extends Shared {
                 for (String line : lines) {
                     text += line + "\n";
                 }
-            }
+            } else {return null;}
 
         } catch (IOException e) {
             System.out.println("No se ha encontrado el archivo.");
@@ -112,7 +110,7 @@ public class Extractor extends Shared {
      * @param file name of the file to add in the information
      * @throws Exception if there is an error to create the file
      */
-    private static void writeToFile(String text, File file) {
+    public static void writeToFile(String text, File file) {
         try {
             FileWriter fileWriter = new FileWriter(file.getAbsolutePath());
             fileWriter.write(text);
@@ -121,5 +119,15 @@ public class Extractor extends Shared {
             e.printStackTrace();
             System.out.println("Ha habido un error al crear el archivo.");
         }
+    }
+
+    /**
+     * Equals method for Extractor
+     * @param obj
+     * @return
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return this.getClass().equals(obj.getClass()) && super.equals(obj.getClass().getSuperclass());
     }
 }
