@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 
 public class Main {
-    static Scanner inputScanner;
+    static Scanner inputScanner = new Scanner(System.in);
     static Shared shared;
-    static Extractor extractor = new Extractor();
+    static Extractor extractor = new Extractor(inputScanner);
 
     public static void main(String[] args) {
         System.out.println("SigPAC ToolKit por Rafael Petouris");
-        inputScanner = new Scanner(System.in);
+
         shared = new Shared(inputScanner);
 
         String option = "";
