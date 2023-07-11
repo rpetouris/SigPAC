@@ -86,7 +86,7 @@ public class Extractor extends Shared {
         int indexBegin = text.indexOf("DATOS DE LINEAS DE AYUDA / RECINTOS"); //beginning
         int indexEnd = text.indexOf("Declaración Responsable(Agricultor Activo)"); //end
 
-        System.out.println(indexBegin + " " + indexEnd);
+        //System.out.println(indexBegin + " " + indexEnd);
 
         String proper = text.substring(indexBegin, indexEnd + 1);
 
