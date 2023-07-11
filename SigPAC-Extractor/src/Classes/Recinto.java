@@ -1,5 +1,7 @@
 package Classes;
 
+import java.util.Objects;
+
 public class Recinto {
     private int codProvincia;
     private int codMunicipio;
@@ -178,4 +180,20 @@ public class Recinto {
                 ", Uso SigPac '" + usoSigPac + '\'' +
                 ']';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Recinto recinto)) return false;
+        return getCodProvincia() == recinto.getCodProvincia() && getCodMunicipio() == recinto.getCodMunicipio()
+                && getAgregado() == recinto.getAgregado() && getZona() == recinto.getZona()
+                && getCodPoligono() == recinto.getCodPoligono() && getCodParcela() == recinto.getCodParcela()
+                && getCodRecinto() == recinto.getCodRecinto()
+                && getNumParcelaAgricola() == recinto.getNumParcelaAgricola()
+                && getCodProducto() == recinto.getCodProducto() && getVariedad() == recinto.getVariedad()
+                && Double.compare(recinto.getSuperDeclarada(), getSuperDeclarada()) == 0
+                && getIrrigacion() == recinto.getIrrigacion()
+                && Objects.equals(getUsoSigPac(), recinto.getUsoSigPac());
+    }
+    
 }

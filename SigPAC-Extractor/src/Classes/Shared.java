@@ -7,7 +7,7 @@ public class Shared {
     private static Scanner inputScanner;
 
     /**
-     * Constructor for Shared, contains shared features between Extractor and Difference classes
+     * Constructor for Shared, contains shared features between Extractor and Comparer classes
      *
      * @param inputScanner scanner that detects user inputs
      */
