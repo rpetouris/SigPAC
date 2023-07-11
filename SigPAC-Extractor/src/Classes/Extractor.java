@@ -32,8 +32,6 @@ public class Extractor extends Shared {
         String pdfFileName = shared.fileNameInput();
         System.out.println("Ha decidido abrir el archivo pdf \"" + pdfFileName + "\"");
 
-
-
         String s = readPDF(pdfFileName);
         if (s != null) {
             System.out.println("¿Cómo quiere llamar a esta tabla?");
@@ -43,10 +41,15 @@ public class Extractor extends Shared {
             System.out.println("La tabla se ha guardado como \"" + file.getAbsolutePath() + "\"");
         }
 
-
     }
 
-
+    /**
+     * Method that parses through a given pdf and outputs the text within it.
+     *
+     * @param fileName path to file to be read
+     * @return String with text within file
+     * @throws IOException if file not found
+     */
     private static String readPDF(String fileName) {
 
         String text = "";
@@ -66,7 +69,6 @@ public class Extractor extends Shared {
                 for (String line : lines) {
                     text += line + "\n";
                 }
-
             }
 
         } catch (IOException e) {
@@ -74,12 +76,16 @@ public class Extractor extends Shared {
             return null;
         }
 
+        return textParser(text);
+    }
+
+    private static String textParser(String text) {
         int indexBegin = text.indexOf("DATOS DE LINEAS DE AYUDA / RECINTOS"); //beginning
         int indexEnd = text.indexOf("Declaración Responsable(Agricultor Activo)"); //end
 
         System.out.println(indexBegin + " " + indexEnd);
 
-        String proper = text.substring(indexBegin,indexEnd + 1);
+        String proper = text.substring(indexBegin, indexEnd + 1);
 
         //test
         String[] recints = proper.split("\n");
@@ -87,7 +93,7 @@ public class Extractor extends Shared {
         String r = "";
 
         for (String recint : recints) {
-            if (recint.matches("\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+,\\d+ \\w \\w+")){
+            if (recint.matches("\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+,\\d+ \\w \\w+")) {
                 r += recint + "\n";
             }
         }
