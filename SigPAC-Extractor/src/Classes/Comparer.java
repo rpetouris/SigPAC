@@ -12,7 +12,9 @@ public class Comparer extends Shared{
         super(inputScanner);
     }
 
-
+    public void dataComparer() {
+        
+    }
 
 
 }

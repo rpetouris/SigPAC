@@ -195,5 +195,5 @@ public class Recinto {
                 && getIrrigacion() == recinto.getIrrigacion()
                 && Objects.equals(getUsoSigPac(), recinto.getUsoSigPac());
     }
-    
+
 }
