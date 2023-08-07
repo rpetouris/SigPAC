@@ -1,3 +1,4 @@
+import Classes.Comparer;
 import Classes.Extractor;
 import Classes.Shared;
 
@@ -8,6 +9,7 @@ public class Main {
     static Scanner inputScanner = new Scanner(System.in);
     static Shared shared;
     static Extractor extractor = new Extractor(inputScanner);
+    static Comparer comparer = new Comparer(inputScanner);
 
     public static void main(String[] args) {
         System.out.println("SigPAC ToolKit por Rafael Petouris");
@@ -49,7 +51,7 @@ public class Main {
                 break;
             case "2":
                 System.out.println("Ha elegido 'Comparar diferencias entre tablas'");
-                System.out.println("Esta opción no está aún desarrollada. Lamento las molestias.");
+                comparer.dataComparer();
                 break;
             case "3":
                 System.out.println("Muchas gracias por usar este servicio.\n" +

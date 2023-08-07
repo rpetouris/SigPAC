@@ -20,13 +20,14 @@ public class Shared {
     }
 
     /**
+     * 
      * Method to scan fileName from user input.
      *
      * @return String fileName
      */
     public static String fileNameInput() {
 
-        System.out.println("Por favor, escriba el nombre del pdf a leer:");
+        System.out.println("Por favor, escriba el nombre del archivo a leer:");
         String fileName = inputScanner.nextLine();
 
         return fileName;

@@ -51,6 +51,10 @@ public class Recinto {
         this.usoSigPac = usoSigPac;
     }
 
+    public Recinto(){
+
+    }
+
     public int getCodProvincia() {
         return codProvincia;
     }
@@ -175,7 +179,7 @@ public class Recinto {
                 ", Número " + numParcelaAgricola +
                 ", Producto " + codProducto +
                 ", Variedad " + variedad +
-                ", Superficie Declarada" + superDeclarada +
+                ", Superficie Declarada " + superDeclarada +
                 ", Irrigación " + ir +
                 ", Uso SigPac '" + usoSigPac + '\'' +
                 ']';
