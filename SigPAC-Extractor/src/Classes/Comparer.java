@@ -28,9 +28,40 @@ public class Comparer extends Shared{
         System.out.println("Ha decidido abrir el archivo \"" + secondFileName + "\"");
         File secondFile = new File("./Files/" + secondFileName + ".txt").getAbsoluteFile();
 
-        dataSorter(firstFile, secondFile);
-
         System.out.println("Comparando Información:");
+
+        List<List<Recinto>> sorted = dataSorter(firstFile, secondFile);
+
+        String sortedDataString = generateSortedString(firstFileName, secondFileName, sorted);
+
+        System.out.println(sortedDataString);
+    }
+
+
+    private static String generateSortedString(String firstFileName, String secondFileName, List<List<Recinto>> sorted) {
+        String sortedDataString = "=================================\n";
+
+        sortedDataString += "Recintos sólo en " + firstFileName + ": \n";
+        for (Recinto r: sorted.get(0)) {
+            sortedDataString += r.toString() + "\n";
+        }
+
+        sortedDataString += "-------------------------------\n";
+
+        sortedDataString += "Recintos sólo en " + secondFileName + ": \n";
+        for (Recinto r: sorted.get(1)) {
+            sortedDataString += r.toString() + "\n";
+        }
+
+        sortedDataString += "-------------------------------\n";
+
+        sortedDataString += "Recintos en común entre los dos archivos: \n";
+        for (Recinto r: sorted.get(2)) {
+            sortedDataString += r.toString() + "\n";
+        }
+
+        sortedDataString += "=================================\n";
+        return sortedDataString;
     }
 
     private List<List<Recinto>> dataSorter(File file1, File file2) {
@@ -38,7 +69,33 @@ public class Comparer extends Shared{
         List<Recinto> firstFile = listFiller(file1);
         List<Recinto> secondFile = listFiller(file2);
 
+        List<Recinto> onlyFirst = new ArrayList<>();
+        List<Recinto> onlySecond = new ArrayList<>();
+        List<Recinto> common = new ArrayList<>();
 
+        for ( Recinto r : firstFile) {
+            if (secondFile.contains(r)){
+                common.add(r);
+            } else {
+                onlyFirst.add(r);
+            }
+        }
+
+        for ( Recinto r : secondFile) {
+            if (!firstFile.contains(r)){
+                onlySecond.add(r);
+            }
+        }
+
+        System.out.println(
+                "Only First: " + onlyFirst.size() + ",\n" +
+                "Only Second: " + onlySecond.size() + ",\n" +
+                "Common: " + common.size()
+        );
+
+        listArray.add(onlyFirst);
+        listArray.add(onlySecond);
+        listArray.add(common);
 
         return listArray;
     }
@@ -55,7 +112,7 @@ public class Comparer extends Shared{
 
                 fileText.add(recinto);
             }
-            System.out.println(fileText.get(0));
+            //System.out.println(fileText.get(0));
             fileScanner.close();
         } catch (Exception e) {
             System.out.println("File was not found");

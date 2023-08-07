@@ -180,8 +180,8 @@ public class Recinto {
                 ", Producto " + codProducto +
                 ", Variedad " + variedad +
                 ", Superficie Declarada " + superDeclarada +
-                ", Irrigación " + ir +
-                ", Uso SigPac '" + usoSigPac + '\'' +
+                ", " + ir +
+                ", Uso '" + usoSigPac + '\'' +
                 ']';
     }
 
