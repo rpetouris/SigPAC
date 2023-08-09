@@ -1,6 +1,7 @@
 package Classes;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -115,8 +116,13 @@ public class Comparer extends Shared{
             //System.out.println(fileText.get(0));
             fileScanner.close();
         } catch (Exception e) {
-            System.out.println("File was not found");
-            e.printStackTrace();
+            System.out.println("Hay un error en el archivo " + file.getName());
+            if (e.getClass().equals(ArrayIndexOutOfBoundsException.class)) {
+                System.out.println("El archivo está corrupto. Pruebe a rehacer el paso 1.");
+            } else if (e.getClass().equals(FileNotFoundException.class)){
+                System.out.println("El archivo no se ha encontrado. Compruebe que el nombre sea el correcto");
+            }
+            return new ArrayList<>();
         }
 
         return fileText;

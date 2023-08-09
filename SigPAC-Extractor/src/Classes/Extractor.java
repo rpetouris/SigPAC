@@ -88,6 +88,11 @@ public class Extractor extends Shared {
 
         //System.out.println(indexBegin + " " + indexEnd);
 
+        if (indexBegin == -1 || indexEnd == 0) {
+            System.out.println("Este archivo no sigue el formato correcto. Asegúrese de que es el correcto.");
+            return null;
+        }
+
         String proper = text.substring(indexBegin, indexEnd + 1);
 
         String[] plots = proper.split("\n");
