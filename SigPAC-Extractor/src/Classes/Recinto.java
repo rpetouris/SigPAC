@@ -51,46 +51,89 @@ public class Recinto {
         this.usoSigPac = usoSigPac;
     }
 
+    /**
+     * Empty constructor for Recinto
+     */
     public Recinto(){
 
     }
 
+    /**
+     * Getter for Codigo Provincia
+     * @return Codigo Provincia
+     */
     public int getCodProvincia() {
         return codProvincia;
     }
 
+    /**
+     * Setter for CodProvincia
+     * @param codProvincia the Codigo Provincia to set
+     */
     public void setCodProvincia(int codProvincia) {
         this.codProvincia = codProvincia;
     }
 
+    /**
+     * Getter for Codigo Municipio
+     * @return Codigo Municipio
+     */
     public int getCodMunicipio() {
         return codMunicipio;
     }
 
+    /**
+     * Setter for CodMunicipio
+     * @param codMunicipio the Codigo Municipio to set
+     */
     public void setCodMunicipio(int codMunicipio) {
         this.codMunicipio = codMunicipio;
     }
 
+    /**
+     * Getter for Agregado
+     * @return Agregado
+     */
     public int getAgregado() {
         return agregado;
     }
 
+    /**
+     * Setter for Agregado
+     * @param agregado the Agregado to set
+     */
     public void setAgregado(int agregado) {
         this.agregado = agregado;
     }
 
+    /**
+     * Getter for Zona
+     * @return Zona
+     */
     public int getZona() {
         return zona;
     }
 
+    /**
+     * Setter for Zona
+     * @param zona the Zona to set
+     */
     public void setZona(int zona) {
         this.zona = zona;
     }
 
+    /**
+     * Getter for CodPoligono
+     * @return codPoligono
+     */
     public int getCodPoligono() {
         return codPoligono;
     }
 
+    /**
+     * Setter for CodPoligono
+     * @param codPoligono
+     */
     public void setCodPoligono(int codPoligono) {
         this.codPoligono = codPoligono;
     }
