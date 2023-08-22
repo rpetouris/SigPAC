@@ -143,8 +143,6 @@ public class Comparer extends Shared{
         recinto.setCodProducto(Integer.parseInt(currentLineArray[8]));
         recinto.setVariedad(Integer.parseInt(currentLineArray[9]));
         recinto.setSuperDeclarada(Double.parseDouble(currentLineArray[10].replace(',', '.')));
-        recinto.setIrrigacion(currentLineArray[11].charAt(0));
-        recinto.setUsoSigPac(currentLineArray[12]);
 
         return recinto;
     }

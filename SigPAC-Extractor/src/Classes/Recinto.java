@@ -1,7 +1,5 @@
 package Classes;
 
-import java.util.Objects;
-
 public class Recinto {
     private int codProvincia;
     private int codMunicipio;
@@ -186,32 +184,12 @@ public class Recinto {
         this.superDeclarada = superDeclarada;
     }
 
-    public char getIrrigacion() {
-        return irrigacion;
-    }
-
-    public void setIrrigacion(char irrigacion) {
-        this.irrigacion = irrigacion;
-    }
-
-    public String getUsoSigPac() {
-        return usoSigPac;
-    }
-
-    public void setUsoSigPac(String usoSigPac) {
-        this.usoSigPac = usoSigPac;
-    }
 
     @Override
     public String toString() {
 
         String ir;
 
-        if (irrigacion == 'S') {
-            ir = "Secano";
-        } else {
-            ir = "Regadío";
-        }
         return "[Provincia " + codProvincia +
                 ", Municipio " + codMunicipio +
                 ", Agregado " + agregado +
@@ -223,8 +201,6 @@ public class Recinto {
                 ", Producto " + codProducto +
                 ", Variedad " + variedad +
                 ", Superficie Declarada " + superDeclarada +
-                ", " + ir +
-                ", Uso '" + usoSigPac + '\'' +
                 ']';
     }
 
@@ -236,11 +212,9 @@ public class Recinto {
                 && getAgregado() == recinto.getAgregado() && getZona() == recinto.getZona()
                 && getCodPoligono() == recinto.getCodPoligono() && getCodParcela() == recinto.getCodParcela()
                 && getCodRecinto() == recinto.getCodRecinto()
-                && getNumParcelaAgricola() == recinto.getNumParcelaAgricola()
+                //&& getNumParcelaAgricola() == recinto.getNumParcelaAgricola()
                 && getCodProducto() == recinto.getCodProducto() && getVariedad() == recinto.getVariedad()
-                && Double.compare(recinto.getSuperDeclarada(), getSuperDeclarada()) == 0
-                && getIrrigacion() == recinto.getIrrigacion()
-                && Objects.equals(getUsoSigPac(), recinto.getUsoSigPac());
+                && Double.compare(recinto.getSuperDeclarada(), getSuperDeclarada()) == 0;
     }
 
 }

@@ -100,7 +100,8 @@ public class Extractor extends Shared {
         String table = "";
 
         for (String p : plots) {
-            if (p.matches("\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+,\\d+ \\w \\w+")) {
+            if (p.matches("(\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+,\\d+ \\w \\w+)" +
+                    "|(\\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+ \\d+,\\d+)")) {
                 table += p + "\n";
             }
         }
